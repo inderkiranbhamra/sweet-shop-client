@@ -9,10 +9,10 @@ const RegisterPage: React.FC = () => {
   const [otp, setOtp] = useState('');
   const [error, setError] = useState('');
   
-  const { register, verifyOtp, googleSignIn } = useAuth();
+  // FIX: Removed 'register' from destructuring since it was unused
+  const { verifyOtp, googleSignIn } = useAuth();
   const navigate = useNavigate();
 
-  // Direct API implementation preserved from your code
   const handleRegisterDirect = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
@@ -134,7 +134,6 @@ const RegisterPage: React.FC = () => {
               <GoogleLogin
                 onSuccess={async (credentialResponse) => {
                   try {
-                    // Added await here to ensure login completes before redirect
                     await googleSignIn(credentialResponse);
                     navigate('/');
                   } catch (err) {

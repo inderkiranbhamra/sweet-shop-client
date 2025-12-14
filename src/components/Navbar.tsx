@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import { Candy, LogOut, ShoppingBag, Shield } from 'lucide-react';
+import { Candy, LogOut, Shield } from 'lucide-react'; // Removed ShoppingBag
 
 const Navbar: React.FC = () => {
   const { user, logout, isAdmin } = useAuth();

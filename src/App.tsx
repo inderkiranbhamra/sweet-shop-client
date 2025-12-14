@@ -1,3 +1,4 @@
+import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider, useAuth } from './context/AuthContext';
 import LoginPage from './pages/LoginPage';
@@ -6,13 +7,14 @@ import HomePage from './pages/HomePage';
 import AdminPage from './pages/AdminPage';
 
 // Protected Route Wrapper
-const ProtectedRoute = ({ children, adminOnly = false }: { children: JSX.Element, adminOnly?: boolean }) => {
+// FIX: Changed JSX.Element to React.ReactNode to fix "Cannot find namespace JSX"
+const ProtectedRoute = ({ children, adminOnly = false }: { children: React.ReactNode, adminOnly?: boolean }) => {
   const { user, isAuthenticated } = useAuth();
 
   if (!isAuthenticated) return <Navigate to="/login" />;
   if (adminOnly && user?.role !== 'ADMIN') return <Navigate to="/" />;
 
-  return children;
+  return <>{children}</>;
 };
 
 function App() {

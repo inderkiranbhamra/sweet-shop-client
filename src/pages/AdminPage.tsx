@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from '../components/Navbar';
 import api from '../api/axios';
-import { Plus, Trash2, RefreshCcw } from 'lucide-react';
+import { Plus, Trash2 } from 'lucide-react'; // Removed RefreshCcw
 
-// --- DEFINED LOCALLY TO FIX IMPORT ERROR ---
 interface Sweet {
   _id: string;
   name: string;
@@ -11,7 +10,6 @@ interface Sweet {
   price: number;
   quantity: number;
 }
-// -------------------------------------------
 
 const AdminPage: React.FC = () => {
   const [sweets, setSweets] = useState<Sweet[]>([]);
