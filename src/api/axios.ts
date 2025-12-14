@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'http://localhost:3000/api', // Points to your Node.js server
+  baseURL: 'https://sweet-shop-api.vercel.app/api', // Points to your Node.js server
   headers: {
     'Content-Type': 'application/json',
   },
