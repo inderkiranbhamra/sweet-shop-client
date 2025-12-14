@@ -29,7 +29,7 @@ const SweetCard: React.FC<Props> = ({ sweet, onPurchase }) => {
             {sweet.category}
           </span>
         </div>
-        <p className="text-lg font-bold text-gray-900">${sweet.price}</p>
+        <p className="text-lg font-bold text-gray-900">₹{sweet.price}</p>
       </div>
 
       <p className="text-sm text-gray-500 mb-4">
